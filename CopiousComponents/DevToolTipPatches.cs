@@ -50,6 +50,9 @@ namespace CopiousComponents
         [HarmonyPatch(nameof(DevToolTip.GenerateMenuItems))]
         private static void GenerateMenuItemsPostfix(DevToolTip __instance, ContextMenu menu)
         {
+            if (!CopiousComponents.GenerateMoveComponentsToggleMenuEntry)
+                return;
+
             menu.AddToggleItem(
                 __instance.World.GetToggleField(),
                 "Move Components", "Copy Components",

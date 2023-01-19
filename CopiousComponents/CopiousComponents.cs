@@ -24,6 +24,9 @@ namespace CopiousComponents
         private static readonly ModConfigurationKey<bool> EnsureSingleInstanceDefaultKey = new ModConfigurationKey<bool>("EnsureSingleInstanceDefault", "The default value for Ensure Single Instance on the Component Clone Tip.", () => false);
 
         [AutoRegisterConfigKey]
+        private static readonly ModConfigurationKey<bool> GenerateMoveComponentsToggleMenuEntryKey = new ModConfigurationKey<bool>("GenerateMoveComponentsToggleMenuEntry", "Generate the moving components toggle in the DevTip Context Menu.", () => true);
+
+        [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> MoveComponentsKey = new ModConfigurationKey<bool>("MoveComponents", "The default value for moving components rather than copying. Toggleable in the DevTip Context Menu.", () => true);
 
         public override string Author => "Banane9";
@@ -32,6 +35,7 @@ namespace CopiousComponents
         public override string Version => "1.0.0";
 
         internal static bool EnsureSingleInstanceDefault => Config.GetValue(EnsureSingleInstanceDefaultKey);
+        internal static bool GenerateMoveComponentsToggleMenuEntry => Config.GetValue(GenerateMoveComponentsToggleMenuEntryKey);
         internal static bool MoveComponents => Config.GetValue(MoveComponentsKey);
 
         public override void OnEngineInit()
